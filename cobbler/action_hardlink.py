@@ -62,6 +62,10 @@ class HardLinker:
 
         rc = utils.subprocess_call(self.logger,self.hardlink_cmd,shell=True)
 
-	# FIXME: if hardlink returns 0, it completed successfully, but cobbler considers the task as failed
-        return rc
+	if rc != 0:
+		status = "Failed"
+	else
+		status = []
+
+        return status
 
