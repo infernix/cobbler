@@ -184,6 +184,11 @@ class Replicate:
                         if not os.path.isdir(dest):
                             os.makedirs(dest)
                         self.rsync_it("distro-%s"%distro["name"], dest)
+                    elif distro["breed"] == 'debian':
+                        dest = os.path.join(self.settings.webdir, "ks_mirror", distro["name"])
+                        if not os.path.isdir(dest):
+                            os.makedirs(dest)
+                        self.rsync_it("distro-%s"%distro["name"], dest)
 
 
 
