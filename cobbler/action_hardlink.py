@@ -44,12 +44,7 @@ class HardLinker:
         else:
             self.hardlink      = "/usr/sbin/hardlink"
             self.hardlink_args = "-c -v"
-<<<<<<< HEAD
         self.hardlink_cmd = "%s %s %s %s" % (self.hardlink, self.hardlink_args, os.path.join(self.settings.webdir, "ks_mirror"), os.path.join(self.settings.webdir, "repo_mirror"))
-=======
-        self.hardlink_cmd = "%s %s %s %s" % (self.hardlink, self.hardlink_args, os.path.join(self.settings.webdir, "ks_mirror"), os.path.join(self.settings.webdir, "repo_mirror")
->>>>>>> 4d922363bb2b199acf0552a1b377d6a97c471c6c
-
 
     def run(self):
         """
