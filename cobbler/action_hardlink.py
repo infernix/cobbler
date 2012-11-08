@@ -44,6 +44,8 @@ class HardLinker:
         else:
             self.hardlink      = "/usr/sbin/hardlink"
             self.hardlink_args = "-c -v"
+        # FIXME: if these directories become configurable some
+        # changes will be required here.
         self.hardlink_cmd = "%s %s %s %s" % (self.hardlink, self.hardlink_args, os.path.join(self.settings.webdir, "ks_mirror"), os.path.join(self.settings.webdir, "repo_mirror"))
 
     def run(self):
@@ -53,9 +55,6 @@ class HardLinker:
         and intelligent over time.
         """
 
-        # FIXME: if these directories become configurable some
-        # changes will be required here.
-
         if not os.path.exists(self.hardlink):
             utils.die(self.logger,"please install 'hardlink' (%s) to use this feature" % self.hardlink)
 
@@ -63,5 +62,6 @@ class HardLinker:
 
         rc = utils.subprocess_call(self.logger,self.hardlink_cmd,shell=True)
 
+	# FIXME: if hardlink returns 0, it completed successfully, but cobbler considers the task as failed
         return rc
 
