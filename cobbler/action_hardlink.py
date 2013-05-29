@@ -64,7 +64,7 @@ class HardLinker:
 
 	if rc != 0:
 		status = "Failed"
-	else
+	else:
 		status = []
 
         return status
